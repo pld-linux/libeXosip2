@@ -1,12 +1,12 @@
 Summary:	The eXtended osip library
 Summary(pl.UTF-8):	Rozszerzona biblioteka osip
 Name:		libeXosip2
-Version:	3.0.3
+Version:	3.2.0
 Release:	0.1
 License:	GPL v2+
 Group:		Libraries
 Source0:	http://download.savannah.nongnu.org/releases/exosip/%{name}-%{version}.tar.gz
-# Source0-md5:	84a6e94f1bcfd5d10640cdd4939208a7
+# Source0-md5:	2186453c58b3da4e302d1456fffa02bf
 URL:		http://savannah.nongnu.org/projects/exosip
 BuildRequires:	libosip2 >= 3.0.3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
