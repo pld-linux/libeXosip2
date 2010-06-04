@@ -2,13 +2,14 @@ Summary:	The eXtended osip library
 Summary(pl.UTF-8):	Rozszerzona biblioteka osip
 Name:		libeXosip2
 Version:	3.3.0
-Release:	0.1
+Release:	1
 License:	GPL v2+
 Group:		Libraries
 Source0:	http://download.savannah.nongnu.org/releases/exosip/%{name}-%{version}.tar.gz
 # Source0-md5:	a2739067b51c1e417c5aef9606b285b2
 URL:		http://savannah.nongnu.org/projects/exosip
 BuildRequires:	libosip2-devel >= 3.0.3
+BuildRequires:	openssl-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -52,14 +53,10 @@ Statyczna biblioteka libeXosip2.
 
 %prep
 %setup -q
-#%patch0 -p1
 
 %build
-%configure
-# disable ssl support - need fresh openssl and isn't necessary - no way to
-# disable it at configure level - see
-# http://www.atosc.org/pipermail/osip/2007-September/007975.html
-sed -e 's@#define HAVE_OPENSSL_SSL_H 1@#undef HAVE_OPENSSL_SSL_H@g' -i config.h
+%configure \
+	--enable-openssl
 %{__make} -j1
 
 %install
@@ -78,6 +75,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/lib*.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/lib*.so.?
 
 %files devel
 %defattr(644,root,root,755)
