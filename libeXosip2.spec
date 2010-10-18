@@ -7,6 +7,7 @@ License:	GPL v2+
 Group:		Libraries
 Source0:	http://download.savannah.nongnu.org/releases/exosip/%{name}-%{version}.tar.gz
 # Source0-md5:	a2739067b51c1e417c5aef9606b285b2
+Patch0:		%{name}-openssl_link.patch
 URL:		http://savannah.nongnu.org/projects/exosip
 BuildRequires:	libosip2-devel >= 3.0.3
 BuildRequires:	openssl-devel
@@ -21,11 +22,11 @@ wish to establish sessions like multiplayer games.
 
 %description -l pl.UTF-8
 eXosip jest biblioteką ukrywającą skomplikowane korzystanie z
-protokołu SIP dla multimedialnych sesji. Prokokół jest przeznaczony
-do wykorzystania przez aplikacje telefoniczne korzystające z
-VoIP(telefony lub serwery konferencji), ale może być równiez
-używany przez dowolne aplikacje chcące uzywać multimedialnych
-sesji, jak np gry dla wielu graczy.
+protokołu SIP dla multimedialnych sesji. Prokokół jest przeznaczony do
+wykorzystania przez aplikacje telefoniczne korzystające z
+VoIP(telefony lub serwery konferencji), ale może być równiez używany
+przez dowolne aplikacje chcące uzywać multimedialnych sesji, jak np
+gry dla wielu graczy.
 
 %package devel
 Summary:	Header files for libeXosip2 library
@@ -53,6 +54,7 @@ Statyczna biblioteka libeXosip2.
 
 %prep
 %setup -q
+%patch0
 
 %build
 %configure \
