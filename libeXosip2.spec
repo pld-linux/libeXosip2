@@ -9,8 +9,12 @@ Source0:	http://download.savannah.nongnu.org/releases/exosip/%{name}-%{version}.
 # Source0-md5:	a2739067b51c1e417c5aef9606b285b2
 Patch0:		%{name}-openssl_link.patch
 URL:		http://savannah.nongnu.org/projects/exosip
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	libosip2-devel >= 3.0.3
+BuildRequires:	libtool
 BuildRequires:	openssl-devel
+BuildRequires:	pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -57,6 +61,10 @@ Statyczna biblioteka libeXosip2.
 %patch0
 
 %build
+%{__libtoolize}
+%{__aclocal} -I scripts
+%{__autoconf}
+%{__automake}
 %configure \
 	--enable-openssl
 %{__make}
