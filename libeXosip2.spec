@@ -1,17 +1,16 @@
 Summary:	The eXtended osip library
 Summary(pl.UTF-8):	Rozszerzona biblioteka osip
 Name:		libeXosip2
-Version:	3.3.0
-Release:	2
+Version:	4.0.0
+Release:	1
 License:	GPL v2+
 Group:		Libraries
 Source0:	http://download.savannah.nongnu.org/releases/exosip/%{name}-%{version}.tar.gz
-# Source0-md5:	a2739067b51c1e417c5aef9606b285b2
-Patch0:		%{name}-openssl_link.patch
+# Source0-md5:	aa385b85f6a17876763a0a860fe2afbf
 URL:		http://savannah.nongnu.org/projects/exosip
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	libosip2-devel >= 3.0.3
+BuildRequires:	libosip2-devel >= 4.0.0
 BuildRequires:	libtool
 BuildRequires:	openssl-devel
 BuildRequires:	pkgconfig
@@ -58,7 +57,6 @@ Statyczna biblioteka libeXosip2.
 
 %prep
 %setup -q
-%patch0
 
 %build
 %{__libtoolize}
@@ -67,7 +65,7 @@ Statyczna biblioteka libeXosip2.
 %{__automake}
 %configure \
 	--enable-openssl
-%{__make}
+%{__make} -j1
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -85,7 +83,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/lib*.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/lib*.so.?
+%attr(755,root,root) %ghost %{_libdir}/lib*.so.??
 
 %files devel
 %defattr(644,root,root,755)
