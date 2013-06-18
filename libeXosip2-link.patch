@@ -1,0 +1,10 @@
+--- libeXosip2-4.0.0/configure.in.orig	2012-11-26 15:02:38.000000000 +0100
++++ libeXosip2-4.0.0/configure.in	2013-06-18 15:38:50.868255367 +0200
+@@ -193,7 +193,6 @@
+ 
+ dnl Checks for libraries.
+ AC_CHECK_LIB(posix4,sem_open,[EXOSIP_LIB="$EXOSIP_LIB -lposix4 -mt"])
+-AC_CHECK_LIB(nsl,nis_add,[EXOSIP_LIB="$EXOSIP_LIB -lnsl"])
+ AC_CHECK_LIB(socket,sendto,[EXOSIP_LIB="$EXOSIP_LIB -lsocket"])
+ AC_CHECK_LIB(rt,clock_gettime,[EXOSIP_LIB="$EXOSIP_LIB -lrt"])
+ 
