@@ -1,14 +1,13 @@
 Summary:	The eXtended osip library
 Summary(pl.UTF-8):	Rozszerzona biblioteka osip
 Name:		libeXosip2
-Version:	5.1.1
+Version:	5.1.3
 Release:	1
 License:	GPL v2+
 Group:		Libraries
 Source0:	http://download.savannah.gnu.org/releases/exosip/libexosip2-%{version}.tar.gz
-# Source0-md5:	7bd432cfefb5356fd1c3424e4c0923e5
+# Source0-md5:	9a088539e5b83c66fec628ca9d80b323
 Patch0:		%{name}-link.patch
-Patch1:		%{name}-soname.patch
 URL:		http://savannah.nongnu.org/projects/exosip
 BuildRequires:	autoconf >= 2.69
 BuildRequires:	automake
@@ -66,7 +65,6 @@ Statyczna biblioteka libeXosip2.
 %prep
 %setup -q -n libexosip2-%{version}
 %patch0 -p1
-%patch1 -p1
 
 %build
 %{__libtoolize}
@@ -94,9 +92,10 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
+%attr(755,root,root) %{_bindir}/sip_monitor
 %attr(755,root,root) %{_bindir}/sip_reg
 %attr(755,root,root) %{_libdir}/libeXosip2.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libeXosip2.so.12
+%attr(755,root,root) %ghost %{_libdir}/libeXosip2.so.13
 
 %files devel
 %defattr(644,root,root,755)
