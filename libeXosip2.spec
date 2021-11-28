@@ -1,22 +1,22 @@
 Summary:	The eXtended osip library
 Summary(pl.UTF-8):	Rozszerzona biblioteka osip
 Name:		libeXosip2
-Version:	5.2.1
-Release:	2
+Version:	5.3.0
+Release:	1
 License:	GPL v2+
 Group:		Libraries
 Source0:	http://download.savannah.gnu.org/releases/exosip/libexosip2-%{version}.tar.gz
-# Source0-md5:	1a51e414066a193f2858af68a8a7a525
+# Source0-md5:	5d410aacb4184188fd81eef4d0aabc3a
 Patch0:		%{name}-link.patch
 URL:		http://savannah.nongnu.org/projects/exosip
 BuildRequires:	autoconf >= 2.69
 BuildRequires:	automake
 BuildRequires:	c-ares-devel
-BuildRequires:	libosip2-devel >= 5.2.1
+BuildRequires:	libosip2-devel >= 5.3.0
 BuildRequires:	libtool >= 2:2
 BuildRequires:	openssl-devel >= 1.0.2
 BuildRequires:	pkgconfig
-Requires:	libosip2 >= 5.2.1
+Requires:	libosip2 >= 5.3.0
 Requires:	openssl >= 1.0.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -41,7 +41,7 @@ Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki libeXosip2
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	c-ares-devel
-Requires:	libosip2-devel >= 5.2.1
+Requires:	libosip2-devel >= 5.3.0
 Requires:	openssl-devel >= 1.0.2
 
 %description devel
@@ -94,8 +94,9 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_bindir}/sip_monitor
 %attr(755,root,root) %{_bindir}/sip_reg
+%attr(755,root,root) %{_bindir}/sip_storm
 %attr(755,root,root) %{_libdir}/libeXosip2.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libeXosip2.so.14
+%attr(755,root,root) %ghost %{_libdir}/libeXosip2.so.15
 
 %files devel
 %defattr(644,root,root,755)
