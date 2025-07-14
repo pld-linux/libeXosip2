@@ -64,7 +64,7 @@ Statyczna biblioteka libeXosip2.
 
 %prep
 %setup -q -n libexosip2-%{version}
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 %{__libtoolize}
